@@ -9,18 +9,6 @@ Welcome to the MERN Projects repository! This repository contains a collection o
 - [Project 3](./project3/README.md): Brief description of Project 3.
 - ...
 
-## Project Structure
-
-Each project follows a similar structure:
-
-Certainly! Below is a template for a README file that you can use for your MERN-related projects:
-
-markdown
-Copy code
-# MERN Projects
-
-Welcome to the MERN Projects repository! This repository contains a collection of projects built using the MERN stack (MongoDB, Express.js, React.js, Node.js). Each project folder contains its own README file with specific instructions on setup and usage.
-
 ## Projects List
 
 - [Project 1](./tutorsHub/README.md): Brief description of TutorsHub.
