@@ -12,7 +12,6 @@ Welcome to the MERN Projects repository! This repository contains a collection o
 ## Project Structure
 
 Each project follows a similar structure:
-
 project1/
 ├── client/ # Frontend React.js code
 │ ├── public/
@@ -25,7 +24,6 @@ project1/
 │ ├── package.json
 │ └── ...
 └── README.md # Project-specific README file
-
 
 ## Getting Started
 
