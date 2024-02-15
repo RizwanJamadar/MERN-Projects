@@ -8,14 +8,7 @@ Welcome to the MERN Projects repository! This repository contains a collection o
 - [Project 2](./project2/README.md): Brief description of Project 2.
 - [Project 3](./project3/README.md): Brief description of Project 3.
 - ...
-
-## Projects List
-
-- [Project 1](./tutorsHub/README.md): Brief description of TutorsHub.
-- [Project 2](./fitAtlas/README.md): Brief description of FitAtlas.
-- [Project 3](./project3/README.md): Brief description of Project 3.
-- ...
-
+- 
 ## Project Structure
 
 Each project follows a similar structure:
