@@ -1,0 +1,46 @@
+.table .cellWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.table .cellWrapper .image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttons button{
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.buttons .accept{
+  color: #ffffff;
+  background-color:  rgba(32, 172, 32, 0.782);
+}
+
+.buttons .accept:hover{
+  background-color: rgba(10, 160, 10, 0.881);
+  font-weight: 600;
+}
+
+.buttons .reject{
+  color: #ffffff;
+  background-color:  rgba(183, 28, 28,0.782);
+}
+
+.buttons .reject:hover{
+  font-weight: 600;
+  background-color: rgba(183, 28, 28, 0.881);
+}
