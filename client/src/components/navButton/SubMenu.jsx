@@ -17,7 +17,7 @@ const SubMenu = ({ item, activeItem, handleClick }) => {
     >
       <div ref={navRef} className="sub-nav-inner">
         {item?.items.map((subItems) => (
-          <Link to={subItems.link}>
+          <Link to={subItems?.link}>
           <NavButton
             onClick={handleClick}
             name={subItems.name}

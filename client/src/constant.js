@@ -71,6 +71,40 @@ export const menuItems = [
   },
 ];
 
+export const userMenu = [
+  {
+    name: "Dashboard",
+    icon: "home",
+    outerLink: "/",
+  },
+  {
+    name: "Leave",
+    icon: "checkbook",
+    items: [
+      {
+        name: "Approved",
+        link: "/allLeaves/Approved",
+      },
+      {
+        name: "Pending",
+        link: "/allLeaves/Pending",
+      },
+      {
+        name: "Rejected",
+        link: "allLeaves/Rejected",
+      },
+    ],
+  },
+  {
+    name:"Profile",
+    icon:"person"
+  },
+  {
+    name: "Logout",
+    icon: "logout",
+  },
+];
+
 export const rows = [
   {
     id: 123546,
@@ -204,7 +238,7 @@ export const dummyData = [
     to: "2024-02-05",
     days: 5,
     action: "Edit",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 2,
@@ -215,7 +249,7 @@ export const dummyData = [
     to: "2024-02-04",
     days: 2,
     action: "Approve",
-    status:"Rejected"
+    status: "Rejected",
   },
   {
     srno: 3,
@@ -226,7 +260,7 @@ export const dummyData = [
     to: "2024-02-09",
     days: 3,
     action: "Edit",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 4,
@@ -237,7 +271,7 @@ export const dummyData = [
     to: "2024-02-14",
     days: 5,
     action: "Edit",
-    status:"Pending"
+    status: "Pending",
   },
   {
     srno: 5,
@@ -248,7 +282,7 @@ export const dummyData = [
     to: "2024-02-16",
     days: 2,
     action: "View",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 6,
@@ -259,7 +293,7 @@ export const dummyData = [
     to: "2024-02-03",
     days: 2,
     action: "Edit",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 7,
@@ -270,7 +304,7 @@ export const dummyData = [
     to: "2024-02-25",
     days: 6,
     action: "Approve",
-    status:"Pending"
+    status: "Pending",
   },
   {
     srno: 8,
@@ -281,7 +315,7 @@ export const dummyData = [
     to: "2024-02-14",
     days: 3,
     action: "Edit",
-    status:"Rejected"
+    status: "Rejected",
   },
   {
     srno: 9,
@@ -292,7 +326,7 @@ export const dummyData = [
     to: "2024-02-09",
     days: 2,
     action: "View",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 10,
@@ -303,7 +337,7 @@ export const dummyData = [
     to: "2024-03-03",
     days: 4,
     action: "Approve",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 11,
@@ -314,7 +348,7 @@ export const dummyData = [
     to: "2024-02-11",
     days: 2,
     action: "Edit",
-    status:"Approved"
+    status: "Approved",
   },
   {
     srno: 12,
@@ -325,7 +359,7 @@ export const dummyData = [
     to: "2024-02-18",
     days: 2,
     action: "View",
-    status:"Pending"
+    status: "Pending",
   },
   {
     srno: 13,
@@ -336,7 +370,7 @@ export const dummyData = [
     to: "2024-02-06",
     days: 2,
     action: "Edit",
-    status:"Pending"
+    status: "Pending",
   },
   {
     srno: 14,
@@ -347,7 +381,7 @@ export const dummyData = [
     to: "2024-02-25",
     days: 4,
     action: "Edit",
-    status:"Rejected"
+    status: "Rejected",
   },
   {
     srno: 15,
@@ -358,6 +392,6 @@ export const dummyData = [
     to: "2024-02-15",
     days: 2,
     action: "Approve",
-    status:"Rejected"
+    status: "Rejected",
   },
 ];

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { menuItems } from "../../constant.js";
+import { menuItems, userMenu } from "../../constant.js";
 import "./sidebar.css";
 import NavButton from "../navButton/NavButton.jsx";
 import SubMenu from "../navButton/subMenu.jsx";
@@ -9,11 +9,15 @@ const Sidebar = () => {
   const [activeItem, setActiveItem] = useState("");
   const handleClick = (item) => setActiveItem(item !== activeItem ? item : "");
 
+  const user = "HOD"
+
+  const menuItem = user === "HOD" ? menuItems : userMenu;
+
   return (
     <div className="leftbar sidebar">
       <div className="leftbarWrapper">
         <>
-          {menuItems.map((item) => (
+          {menuItem.map((item) => (
             <div>
               <Link to={item?.outerLink}>
                 <NavButton 
