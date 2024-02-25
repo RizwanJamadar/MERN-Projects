@@ -15,20 +15,67 @@ export const RequestLeave = async (req, res, next) => {
     const objectId = new mongoose.Types.ObjectId(newReqLeave.id);
 
     await UserModel.updateOne(
-      {email},
+      { email },
       {
-        $push:{
-            leaves:
-             objectId
-        }
+        $push: {
+          leaves: objectId,
+        },
       },
       {
-        new:true
+        new: true,
       }
     );
 
     res.status(200).send("Leave Request sent sucessfully..");
   } catch (err) {
     next(err);
+  }
+};
+
+export const approveRequest = async (req, res, next) => {
+  const leaveRequestId = req.params.id;
+  const { Role, department } = req.body;
+
+  try {
+    const leaveRequest = await LeaveRequest.findById(leaveRequestId).populate(
+      "userId"
+    );
+
+    if (!leaveRequest) {
+      return res.status(404).json({ message: "Leave request not found" });
+    }
+
+    const approvingUser = leaveRequest.userId;
+
+    // Check if the approving user is HOD and belongs to the same department
+    if (
+      Role === "hod" &&
+      approvingUser.department === department
+    ) {
+      leaveRequest.hodApproval = true;
+    } else if (Role === "vp") {
+      leaveRequest.vpApproval = true;
+    } else if (Role === "dt") {
+      leaveRequest.dtApproval = true;
+    } else {
+      return res.status(400).json({ message: "Invalid authority specified" });
+    }
+
+    // Check if all approvals are received
+    if (!leaveRequest.hodApproval && leaveRequest.vpApproval) {
+      leaveRequest.status = "Pending";
+    } else if (leaveRequest.hodApproval && !leaveRequest.vpApproval) {
+      leaveRequest.status = "Pending";
+    } else if (leaveRequest.hodApproval && leaveRequest.vpApproval) {
+      leaveRequest.status = "Approved";
+    } else {
+      leaveRequest.status = "Rejected";
+    }
+
+    const updatedLeaveRequest = await leaveRequest.save();
+    res.json(updatedLeaveRequest);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
