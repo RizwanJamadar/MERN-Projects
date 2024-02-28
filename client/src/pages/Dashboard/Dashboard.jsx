@@ -3,6 +3,7 @@ import './dashboard.css'
 import Chart from '../../components/chart/Chart'
 import Widgets from '../../components/widgets/Widgets'
 import Table2 from '../../components/table/Table2'
+import GraphComponent from '../../components/GraphComponent'
 
 const Dashboard = () => {
   return (
@@ -17,7 +18,8 @@ const Dashboard = () => {
         <div className="table">
           <Table2/>
         </div>
-          <Chart title="Last 6 months (Leave)" aspect={2/1} />
+         {/* <GraphComponent/> */}
+          <Chart title="Last 6 months (Leave)" aspect={5/3} />
         </div>
     </div>
   )

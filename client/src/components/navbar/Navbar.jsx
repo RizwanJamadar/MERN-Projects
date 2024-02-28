@@ -6,7 +6,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import "./navbar.css";
 
 const Navbar = () => {
-  const name = "Rizwan";
+  const user ={
+    fname:"Rizwan",
+    lname:"Jamadar",
+    Role:"Assistant Professor"
+  };
+
   return (
     <div className="navbar">
       <div className="navbarWrapper">
@@ -31,14 +36,12 @@ const Navbar = () => {
               <NotificationsIcon />
             </Badge>
           </div>
-          <img
-            className="avatar"
-            src="https://images.pexels.com/photos/3024627/pexels-photo-3024627.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-          />
+          <div class="avatar">
+            {user.fname.charAt(0).toUpperCase() + user.lname.charAt(0).toUpperCase()}
+          </div>
           <span className="navbarName">
-            {name}
-            <p>Admin</p>
+            {user.fname}
+            <p>{user.Role}</p>
           </span>
           <ArrowDropDownIcon />
         </div>

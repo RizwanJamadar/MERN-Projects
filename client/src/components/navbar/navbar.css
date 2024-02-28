@@ -51,6 +51,12 @@
     height: 32px;
     border-radius: 50%;
     object-fit: cover;
+    background-color: #f0f0f0; /* Default background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
   }
   
   .navbarName {

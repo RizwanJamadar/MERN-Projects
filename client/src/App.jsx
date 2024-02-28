@@ -32,6 +32,8 @@ const Layout = () => {
   );
 };
 
+const userRole = "HOD";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +41,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Dashboard />,
+        element:
+          userRole === "Professor" ? <>hello professor</> : userRole === "vp" ? "Hello VP" : <Dashboard />,
       },
       {
         path: "/addEmployee",
