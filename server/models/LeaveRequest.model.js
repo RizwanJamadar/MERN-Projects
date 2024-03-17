@@ -15,10 +15,12 @@ const LeaveRequestSchema = new mongoose.Schema(
       default: "Pending",
     },
     hodApproval: { 
-      type: Boolean 
+      type: Boolean,
+      default:null
     },
     vpApproval: { 
-      type: Boolean
+      type: Boolean,
+      default:null
     },
     dtApproval: {
       type: Boolean
