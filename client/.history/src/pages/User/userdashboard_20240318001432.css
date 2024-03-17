@@ -1,0 +1,25 @@
+.userdashboard{
+    display: flex;
+    flex:5;
+    gap:20px;
+    padding: 20px 40px;
+}
+
+.userdashboard .user_left{
+    flex: 1;
+    padding: 10px 20[x];
+}
+.userdashboard .user_right{
+    flex: 1;
+}
+
+.userdashboard .user_left .user_analysis{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border: 1px solid rgb(186, 184, 184);
+  border-radius: 10px;
+}
+

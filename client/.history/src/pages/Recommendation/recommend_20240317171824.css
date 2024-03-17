@@ -1,0 +1,15 @@
+.recommandLeave{
+    flex: 5;
+    padding: 2rem 9%;
+}
+
+.recommandLeave .heading{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.recommandLeave .heading h1{
+    text-align: center;
+    color: #192a56;
+    font-size: 30px;
+}

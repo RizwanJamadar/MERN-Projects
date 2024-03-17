@@ -1,0 +1,11 @@
+.userdashboard{
+    display: flex;
+    flex:5
+}
+
+.userdashboard .user_left{
+    flex: 1;
+}
+.userdashboard .user_right{
+    flex: 1;
+}

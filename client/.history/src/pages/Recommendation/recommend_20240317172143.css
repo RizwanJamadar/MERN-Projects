@@ -1,0 +1,97 @@
+.recommandLeave{
+    flex: 5;
+    padding: 2rem 9%;
+}
+
+.recommandLeave .heading{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.recommandLeave .heading h1{
+    text-align: center;
+    color: #192a56;
+    font-size: 30px;
+}
+
+.recommandLeave .heading span{
+    color: #312ECB;
+}
+
+.recommandLeave .heading p{
+    font-size: 14.5px;
+    color: #777;
+}
+
+.recommandLeave .form{
+    max-width: 800px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.recommandLeave .form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recommandLeave .form .inputBox .input{
+    width: 48%;
+}
+
+.recommandLeave .form .inputBox .input span{
+    display: block;
+    padding: 5px 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.recommandLeave .form .inputBox .input input{
+    width: 100%;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #192a56;
+    text-transform: none;
+    margin-bottom: 10px;
+}
+
+.recommandLeave .form .inputBox .input .box{
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.recommandLeave .form .inputBox .input input:focus{
+    border: 1px solid #312ECB;
+}
+
+.buttons{
+    justify-content: flex-start;
+}
+
+.recommandLeave .form .btn{
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 15px;
+    color: #fff;
+    background: #5250c4da;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.requestedLeave .show .btn{
+    font-size: 13px;
+    padding: 5px 10px;
+    background-color: #312ECB;
+    margin-top: 0;
+}
+
+.recommandLeave .form .btn:hover{
+    background-color: #312ECB;
+}

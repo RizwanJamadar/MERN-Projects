@@ -1,0 +1,51 @@
+.userdashboard {
+  display: flex;
+  flex: 5;
+  gap: 20px;
+  padding: 20px 40px;
+}
+
+.userdashboard .user_left {
+  flex: 1;
+}
+.userdashboard .user_right {
+  flex: 1;
+}
+
+.userdashboard .user_left .user_analysis {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border: 1px solid rgb(186, 184, 184);
+  border-radius: 10px;
+  padding: 15px 25px;
+}
+
+.userdashboard .user_left .user_analysis .heading_bottom {
+    display: flex;
+    align-items: center;
+  justify-content: space-evenly;
+}
+
+.userdashboard .user_left .user_analysis .heading_top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px
+}
+
+.userdashboard .user_left .user_analysis .user_btn{
+    background-color: #312ecb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: none;
+}
+
+.userdashboard .user_left .user_analysis .heading_bottom .box .headings{
+  margin-top: 10px;
+  text-align: center;
+}

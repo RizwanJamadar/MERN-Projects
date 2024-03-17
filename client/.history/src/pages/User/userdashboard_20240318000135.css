@@ -1,0 +1,18 @@
+.userdashboard{
+    display: flex;
+    flex:5;
+    gap:20px;
+    padding: 20px 40px;
+}
+
+.userdashboard .user_left{
+    flex: 1;
+}
+.userdashboard .user_right{
+    flex: 1;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border: 1px solid rgb(186, 184, 184);
+  border-radius: 10px;
+}
+
