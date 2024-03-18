@@ -3,7 +3,7 @@ import { menuItems, userMenu } from "../../constant.js";
 import "./sidebar.css";
 import NavButton from "../navButton/NavButton.jsx";
 import SubMenu from "../navButton/subMenu.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Sidebar = () => {
@@ -16,8 +16,6 @@ const Sidebar = () => {
 
   const [message, setMessage] = useState("")
   const [open, setOpen] = useState(false)
-  const navigate = useNavigate()
-
   const handleLogout = async () =>{
     try {
       const res = await axios.post("http://localhost:8800/api/auth/logout")

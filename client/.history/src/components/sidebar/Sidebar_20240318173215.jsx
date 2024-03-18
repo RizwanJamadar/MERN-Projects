@@ -35,7 +35,7 @@ const Sidebar = () => {
       <div className="leftbarWrapper">
         <>
           {menuItem.map((item) => (
-            <div>
+            <div key={item.id}>
               <Link to={item?.outerLink}>
                 <NavButton 
                 onClick={item.onclick ? handleLogout : handleClick}

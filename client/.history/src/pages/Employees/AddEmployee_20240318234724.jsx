@@ -21,8 +21,8 @@ const AddEmployee = () => {
         "Content-Type": "application/json", // Set the content type according to your API requirements
       };
 
-      const res = await axios.post("http://localhost:8800/api/auth/register",data,{headers });
-      // console.log(res.data);
+      const res = await axios.post("http://localhost:8800/api/auth/register",data);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

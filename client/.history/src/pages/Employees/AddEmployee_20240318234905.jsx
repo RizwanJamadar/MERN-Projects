@@ -22,7 +22,7 @@ const AddEmployee = () => {
       };
 
       const res = await axios.post("http://localhost:8800/api/auth/register",data,{headers });
-      // console.log(res.data);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
