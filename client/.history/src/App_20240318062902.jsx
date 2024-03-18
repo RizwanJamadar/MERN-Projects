@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:
-          user.Role == "Professor" ? <UserDashboard/> : <Dashboard />,
+          user.Role === "Professor" ? <UserDashboard/> : <Dashboard />,
       },
       {
         path: "/addEmployee",

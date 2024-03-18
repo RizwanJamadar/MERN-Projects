@@ -91,10 +91,6 @@
 }
 
 .userdashboard .user_right .upcoming_holidays span{
-  font-size: 14.5px;
+  font-size: 14px;
   color: #777;
-}
-
-.userdashboard .user_right .upcoming_holidays:last-child{
-  border-bottom: none;
 }

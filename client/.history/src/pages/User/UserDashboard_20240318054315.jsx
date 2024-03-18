@@ -112,7 +112,7 @@ const UserDashboard = () => {
               <h4>{data.date}</h4>
               <span>{data.day}</span>
             </div>
-            <div className="day">{data.name.slice(0,22)}</div>
+            <div className="day">{data.name}</div>
           </div>
         ))}
       </div>

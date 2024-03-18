@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("")
+  onst [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
@@ -24,11 +23,11 @@ const Login = () => {
       })
       localStorage.setItem("currentUser", JSON.stringify(res.data))
       // console.log(res);
-      navigate("/")
+      navigate("/store")
     } catch (error) {
-      setError(error)
+      setError(error.response.data)
+      setOpen(true)
     }
-    console.log(error);
   }
 
   return (
@@ -53,7 +52,7 @@ const Login = () => {
             <LockOutlinedIcon/>
             <input type="password" placeholder="Your password" onChange={(e) => setPassword(e.target.value)}/>
           </div>
-          <button className="" onClick={handleSubmit}>
+          <button className="">
             Login
           </button>
         </div>

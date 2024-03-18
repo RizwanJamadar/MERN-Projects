@@ -38,7 +38,7 @@ const UserDashboard = () => {
         return new Date(a.date) - new Date(b.date);
       });
 
-      const upcomingHolidays = filteredHolidays.slice(0, 7); // Extract first 8 items
+      const upcomingHolidays = filteredHolidays.slice(0, 8); // Extract first 8 items
       setUpcomingHolidays(upcomingHolidays);
       console.log(upcomingHolidays);
     } catch (error) {
@@ -112,7 +112,7 @@ const UserDashboard = () => {
               <h4>{data.date}</h4>
               <span>{data.day}</span>
             </div>
-            <div className="day">{data.name.slice(0,22)}</div>
+            <div className="day">{data.name}</div>
           </div>
         ))}
       </div>

@@ -87,14 +87,5 @@
   justify-content: space-between;
   border-bottom: 1px solid grey;
   padding: 10px 20px;
-  margin: 5px 10px
-}
-
-.userdashboard .user_right .upcoming_holidays span{
-  font-size: 14.5px;
-  color: #777;
-}
-
-.userdashboard .user_right .upcoming_holidays:last-child{
-  border-bottom: none;
+  margin: 0px 10px
 }

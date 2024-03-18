@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState("")
+  onst [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
 
@@ -26,7 +25,7 @@ const Login = () => {
       // console.log(res);
       navigate("/")
     } catch (error) {
-      setError(error)
+      setError(error.response.data)
     }
     console.log(error);
   }

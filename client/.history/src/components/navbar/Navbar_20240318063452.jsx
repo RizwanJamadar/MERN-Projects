@@ -32,11 +32,11 @@ const Navbar = () => {
             </Badge>
           </div>
           <div class="avatar">
-            {user.details.firstName.charAt(0).toUpperCase() + user.details.lastName.charAt(0).toUpperCase()}
+            {user.firstName.charAt(0).toUpperCase() + user.lastName.charAt(0).toUpperCase()}
           </div>
           <span className="navbarName">
-            {user.details.firstName}
-            <p>{user.Role === "vp" ? "Vice Principal" : user.Role}</p>
+            {user.firstName}
+            <p>{user.Role === "vp" ? "Vice Principal" : user.Rols}</p>
           </span>
           <ArrowDropDownIcon />
         </div>
