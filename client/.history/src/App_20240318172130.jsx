@@ -53,7 +53,7 @@ const ProtectedRouteAdmin = () => {
     return <Navigate to="/login" />;
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
+  return user && user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
 };
 
 const router = createBrowserRouter([
@@ -105,12 +105,12 @@ const router = createBrowserRouter([
       {
         path:"/recommandleave",
         element: <RecommandLeave/>
+      },
+      {
+        path:"/login",
+        element:<Login/>
       }
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 export default App;

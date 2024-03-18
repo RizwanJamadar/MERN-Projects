@@ -45,16 +45,17 @@ const Layout = () => {
   );
 };
 
+const user = JSON.parse(localStorage.getItem("currentUser"));
 
-const ProtectedRouteAdmin = () => {
+const ProtectedRouteAdmin = ({children}) =>{
   const user = JSON.parse(localStorage.getItem("currentUser"));
 
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+  if (!user || user.Role == null) {
+    return <Navigate to="/login"/>
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
-};
+  return children;
+}
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:
-        <ProtectedRouteAdmin/>,
+        <ProtectedRouteAdmin>
+          {user && user?.Role == "Professor" ? <UserDashboard/> : <Dashboard />}
+        </ProtectedRouteAdmin>,
       },
       {
         path: "/addEmployee",

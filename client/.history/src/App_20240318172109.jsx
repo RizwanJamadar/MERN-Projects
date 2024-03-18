@@ -105,12 +105,12 @@ const router = createBrowserRouter([
       {
         path:"/recommandleave",
         element: <RecommandLeave/>
+      },
+      {
+        path:"/login",
+        element:<Login/>
       }
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 export default App;

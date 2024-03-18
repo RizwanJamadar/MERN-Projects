@@ -36,7 +36,7 @@ const Navbar = () => {
           </div>
           <span className="navbarName">
             {user && user.details.firstName}
-            <p>{user && user.Role === "vp" ? "Vice Principal" : user && user.Role}</p>
+            <p>{user && user.Role === "vp" ? "Vice Principal" : user.Role}</p>
           </span>
           <ArrowDropDownIcon />
         </div>

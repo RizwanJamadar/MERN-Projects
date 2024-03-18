@@ -46,15 +46,15 @@ const Layout = () => {
 };
 
 
-const ProtectedRouteAdmin = () => {
+const ProtectedRouteAdmin = () =>{
   const user = JSON.parse(localStorage.getItem("currentUser"));
 
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+  if (!user || user == null) {
+    return <Navigate to="/login"/>
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
-};
+  return user && user?.Role == "Professor" ? <UserDashboard/> : <Dashboard />;
+}
 
 const router = createBrowserRouter([
   {

@@ -21,11 +21,9 @@ import AddList from "./pages/Leave/AddList";
 import RequestLeave from "./pages/Leave/RequestLeave.jsx";
 import UserDashboard from "./pages/User/UserDashboard.jsx";
 import ApplyLeave from "./pages/Leave/ApplyLeave.jsx";
-import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx"
+import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx";
 
-
-
-function App (){
+function App() {
   return (
     <>
       <RouterProvider router={router} />
@@ -45,15 +43,14 @@ const Layout = () => {
   );
 };
 
+const user = JSON.parse(localStorage.getItem("currentUser"));
 
-const ProtectedRouteAdmin = () => {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+const ProtectedRouteAdmin = ({ children }) => {
+  if (user || user != null) {
+    return children;
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
+  return <Navigate to="/login" />;
 };
 
 const router = createBrowserRouter([
@@ -63,8 +60,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:
-        <ProtectedRouteAdmin/>,
+        element: (
+          <ProtectedRouteAdmin>
+            {user && user?.Role == "Professor" ? (
+              <UserDashboard />
+            ) : (
+              <Dashboard />
+            )}
+          </ProtectedRouteAdmin>
+        ),
       },
       {
         path: "/addEmployee",
@@ -99,18 +103,18 @@ const router = createBrowserRouter([
         element: <AddList />,
       },
       {
-        path:"/applyLeave",
-        element:<ApplyLeave/>
+        path: "/applyLeave",
+        element: <ApplyLeave />,
       },
       {
-        path:"/recommandleave",
-        element: <RecommandLeave/>
-      }
+        path: "/recommandleave",
+        element: <RecommandLeave />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 export default App;

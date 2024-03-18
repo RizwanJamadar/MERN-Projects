@@ -21,17 +21,7 @@ import AddList from "./pages/Leave/AddList";
 import RequestLeave from "./pages/Leave/RequestLeave.jsx";
 import UserDashboard from "./pages/User/UserDashboard.jsx";
 import ApplyLeave from "./pages/Leave/ApplyLeave.jsx";
-import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx"
-
-
-
-function App (){
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
-}
+import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx";
 
 const Layout = () => {
   return (
@@ -45,26 +35,31 @@ const Layout = () => {
   );
 };
 
+const user = JSON.parse(localStorage.getItem("currentUser"));
 
-const ProtectedRouteAdmin = () => {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+const protectedRoute = ({ children }) => {
+  if (user) {
+    return children;
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
+  return <Navigate to="/login" />;
 };
+// console.log(user);
+
+// protectedRoute()
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <protectedRoute>
+        <Layout />
+      </protectedRoute>
+    ),
     children: [
       {
         path: "/",
-        element:
-        <ProtectedRouteAdmin/>,
+        element: user?.Role == "Professor" ? <UserDashboard /> : <Dashboard />,
       },
       {
         path: "/addEmployee",
@@ -99,13 +94,13 @@ const router = createBrowserRouter([
         element: <AddList />,
       },
       {
-        path:"/applyLeave",
-        element:<ApplyLeave/>
+        path: "/applyLeave",
+        element: <ApplyLeave />,
       },
       {
-        path:"/recommandleave",
-        element: <RecommandLeave/>
-      }
+        path: "/recommandleave",
+        element: <RecommandLeave />,
+      },
     ],
   },
   {
@@ -113,4 +108,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
 ]);
+
+const App = () => {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+};
+
 export default App;

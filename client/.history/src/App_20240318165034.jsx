@@ -23,16 +23,6 @@ import UserDashboard from "./pages/User/UserDashboard.jsx";
 import ApplyLeave from "./pages/Leave/ApplyLeave.jsx";
 import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx"
 
-
-
-function App (){
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
-}
-
 const Layout = () => {
   return (
     <>
@@ -45,16 +35,19 @@ const Layout = () => {
   );
 };
 
+const user = JSON.parse(localStorage.getItem("currentUser"));
+const protectedRoute = ({children}) =>{
 
-const ProtectedRouteAdmin = () => {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+  if(!user || user === null){
+    return <Navigate to="/login"/>
   }
+  // console.log(user);
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
-};
+  return children;
+}
+// console.log(user);
+
+protectedRoute()
 
 const router = createBrowserRouter([
   {
@@ -64,7 +57,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:
-        <ProtectedRouteAdmin/>,
+          <protectedRoute>
+            {user.Role == "Professor" ? <UserDashboard/> : <Dashboard />}
+          </protectedRoute>,
       },
       {
         path: "/addEmployee",
@@ -113,4 +108,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
 ]);
+
+const App = () => {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
+
 export default App;

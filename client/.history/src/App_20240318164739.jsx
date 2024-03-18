@@ -23,16 +23,6 @@ import UserDashboard from "./pages/User/UserDashboard.jsx";
 import ApplyLeave from "./pages/Leave/ApplyLeave.jsx";
 import RecommandLeave from "./pages/Recommendation/RecommandLeave.jsx"
 
-
-
-function App (){
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
-}
-
 const Layout = () => {
   return (
     <>
@@ -45,16 +35,11 @@ const Layout = () => {
   );
 };
 
-
-const ProtectedRouteAdmin = () => {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
-  }
-
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
-};
+const user = JSON.parse(localStorage.getItem("currentUser"));
+const protectedRoute = ({children}) =>{
+  console.log(user);
+}
+// console.log(user);
 
 const router = createBrowserRouter([
   {
@@ -64,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:
-        <ProtectedRouteAdmin/>,
+          user.Role == "Professor" ? <UserDashboard/> : <Dashboard />,
       },
       {
         path: "/addEmployee",
@@ -113,4 +98,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
 ]);
+
+const App = () => {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
+
 export default App;

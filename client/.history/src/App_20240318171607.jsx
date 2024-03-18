@@ -5,6 +5,7 @@ import {
   Navigate,
   Outlet,
   RouterProvider,
+  useNavigate,
 } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Sidebar from "./components/sidebar/Sidebar.jsx";
@@ -45,16 +46,17 @@ const Layout = () => {
   );
 };
 
-
-const ProtectedRouteAdmin = () => {
+const user = JSON.parse(localStorage.getItem("currentUser"));
+const navigate = useNavigate()
+const ProtectedRouteAdmin = ({children}) =>{
   const user = JSON.parse(localStorage.getItem("currentUser"));
 
-  if (!user || user === null || !user.Role) {
-    return <Navigate to="/login" />;
+  if (!user || user.Role == null) {
+    return navigate("/login")
   }
 
-  return user.Role === "Professor" ? <UserDashboard /> : <Dashboard />;
-};
+  return children;
+}
 
 const router = createBrowserRouter([
   {
@@ -64,7 +66,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element:
-        <ProtectedRouteAdmin/>,
+        <ProtectedRouteAdmin>
+          {user && user?.Role == "Professor" ? <UserDashboard/> : <Dashboard />}
+        </ProtectedRouteAdmin>,
       },
       {
         path: "/addEmployee",
