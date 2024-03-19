@@ -7,35 +7,28 @@ import LeaveRequestModel from "../models/LeaveRequest.model.js";
 
 export const RequestLeave = async (req, res, next) => {
   try {
-    const { type, days, email, phoneno, startDate, endDate, reason } = req.body;
-    console.log(req.file)
-    const attachment = req.file ? req.file.filename : null; // Check if a file is uploaded
-    console.log(attachment);
-    // Save leave request
-    const newReqLeave = new LeaveRequest({
-      type,
-      days,
-      email,
-      phoneno,
-      startDate,
-      endDate,
-      attachment,
-      reason,
-    });
-    await newReqLeave.save();
+    const { email } = req.body;
 
-    // Update user with leave request
+    const newReqLeave = new LeaveRequest({
+      ...req.body,
+    });
+
+    await newReqLeave.save();
     const objectId = new mongoose.Types.ObjectId(newReqLeave.id);
+
     await User.updateOne(
       { email },
       {
         $push: {
           leaves: objectId,
         },
+      },
+      {
+        new: true,
       }
     );
 
-    res.status(200).send("Leave Request sent successfully.");
+    res.status(200).send("Leave Request sent sucessfully..");
   } catch (err) {
     next(err);
   }

@@ -12,7 +12,6 @@ const LeaveRequestSchema = new mongoose.Schema(
     reason: String,
     email: String,
     phoneno: Number,
-    attachment:String,
     status: {
       type: String,
       default: "Pending",

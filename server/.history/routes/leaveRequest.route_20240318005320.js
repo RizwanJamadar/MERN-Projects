@@ -1,12 +1,11 @@
 import express from "express";
 import { RequestLeave, approveRequest, getByHod, getByUser, getByVp, rejectRequest } from "../controllers/leaveRequest.controller.js";
 import { verifyToken,verifyVP } from "../utils/verifyUser.js";
-import upload from "../utils/upload.js"
 
 const router = express.Router();
 
 // create route
-router.post("/addRequest",upload.single('attachment'),RequestLeave)
+router.post("/addRequest",RequestLeave)
 
 // update routes
 router.put("/approve-requests/:id",verifyToken,approveRequest)

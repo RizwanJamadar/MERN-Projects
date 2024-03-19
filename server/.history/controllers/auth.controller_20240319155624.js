@@ -62,24 +62,10 @@ export const logout = async (req, res) => {
 export const getAllUsers = async (req, res, next) => {
   try {
     const requests = await UserModel.find({
-      Role: { $nin: ["vp"] },
-    }).sort({ Role: -1, department:1 });
+      Role: { $nin: ["Vice Principal"] },
+    });
     res.status(200).json(requests);
   } catch (error) {
     next(error);
   }
 };
-
-export const getDeptUsers = async (req,res,next) =>{
-  try {
-    // const user = req.user;
-    const user = await UserModel.findById(req.user.id)
-    // console.log(user);
-
-    // Find all professors in the HOD's department except the HOD
-    const professors = await UserModel.find({ Role: "Professor", department: user.department, _id: { $ne: user._id } });
-    res.status(200).json(professors);
-  } catch (error) {
-    next(error)
-  }
-}

@@ -8,9 +8,11 @@ import LeaveRequestModel from "../models/LeaveRequest.model.js";
 export const RequestLeave = async (req, res, next) => {
   try {
     const { type, days, email, phoneno, startDate, endDate, reason } = req.body;
-    console.log(req.file)
-    const attachment = req.file ? req.file.filename : null; // Check if a file is uploaded
+    console.log(file);
+    const attachment = req.file.filename ;
     console.log(attachment);
+    // Check if a file is uploaded
+
     // Save leave request
     const newReqLeave = new LeaveRequest({
       type,

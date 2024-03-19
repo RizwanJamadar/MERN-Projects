@@ -2,7 +2,6 @@ import User from "../models/User.model.js";
 import bcrypt from "bcryptjs";
 import { createError } from "../utils/error.js";
 import jwt from "jsonwebtoken";
-import UserModel from "../models/User.model.js";
 
 export const register = async (req, res, next) => {
   try {
@@ -34,7 +33,10 @@ export const login = async (req, res, next) => {
     if (!isPasswordCorrect)
       return next(createError(400, "Invalid username or password!"));
 
-    const token = jwt.sign({ id: user._id, Role: user.Role }, process.env.JWT);
+    const token = jwt.sign(
+      { id: user._id, Role:user.Role},
+      process.env.JWT
+    );
 
     const { password, Role, ...otherDetails } = user._doc;
 
@@ -43,7 +45,7 @@ export const login = async (req, res, next) => {
         httpOnly: true,
       })
       .status(200)
-      .json({ details: { ...otherDetails }, Role, token });
+      .json({ details: { ...otherDetails }, Role, token, } );
   } catch (err) {
     next(err);
   }
@@ -58,28 +60,3 @@ export const logout = async (req, res) => {
     .status(200)
     .send("Logout Successfully");
 };
-
-export const getAllUsers = async (req, res, next) => {
-  try {
-    const requests = await UserModel.find({
-      Role: { $nin: ["vp"] },
-    }).sort({ Role: -1, department:1 });
-    res.status(200).json(requests);
-  } catch (error) {
-    next(error);
-  }
-};
-
-export const getDeptUsers = async (req,res,next) =>{
-  try {
-    // const user = req.user;
-    const user = await UserModel.findById(req.user.id)
-    // console.log(user);
-
-    // Find all professors in the HOD's department except the HOD
-    const professors = await UserModel.find({ Role: "Professor", department: user.department, _id: { $ne: user._id } });
-    res.status(200).json(professors);
-  } catch (error) {
-    next(error)
-  }
-}

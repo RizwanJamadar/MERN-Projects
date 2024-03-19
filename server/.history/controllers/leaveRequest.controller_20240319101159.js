@@ -4,13 +4,13 @@ import User from "../models/User.model.js";
 import { createError } from "../utils/error.js";
 import UserModel from "../models/User.model.js";
 import LeaveRequestModel from "../models/LeaveRequest.model.js";
+import {upload} from "../utils/upload.js"
 
 export const RequestLeave = async (req, res, next) => {
   try {
     const { type, days, email, phoneno, startDate, endDate, reason } = req.body;
-    console.log(req.file)
     const attachment = req.file ? req.file.filename : null; // Check if a file is uploaded
-    console.log(attachment);
+
     // Save leave request
     const newReqLeave = new LeaveRequest({
       type,

@@ -72,9 +72,7 @@ export const getAllUsers = async (req, res, next) => {
 
 export const getDeptUsers = async (req,res,next) =>{
   try {
-    // const user = req.user;
-    const user = await UserModel.findById(req.user.id)
-    // console.log(user);
+    const user = req.user;
 
     // Find all professors in the HOD's department except the HOD
     const professors = await UserModel.find({ Role: "Professor", department: user.department, _id: { $ne: user._id } });
