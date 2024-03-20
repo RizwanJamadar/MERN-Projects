@@ -32,6 +32,29 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/leaveRequest", requestRoute);
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./files");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/leaveRequest', upload.single('attachment'), async (req, res, next) => {
+    try {
+      console.log(req.attachment); // Log the uploaded file
+      console.log(req.body); // Log the request body
+  
+      // Your existing code to handle the leave request goes here...
+    } catch (error) {
+      next(error);
+    }
+});
+
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
     const errorMessage = err.message || "Something went wrong!";

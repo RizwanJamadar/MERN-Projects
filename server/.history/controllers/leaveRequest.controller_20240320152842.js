@@ -7,10 +7,9 @@ import LeaveRequestModel from "../models/LeaveRequest.model.js";
 
 export const RequestLeave = async (req, res, next) => {
   try {
-    const { type, days, email, phoneno, startDate, endDate, reason, attachment,userId } = req.body;
+    const { type, days, email, phoneno, startDate, endDate, reason } = req.body;
     // Save leave request
     const newReqLeave = new LeaveRequest({
-      userId,
       type,
       days,
       email,
