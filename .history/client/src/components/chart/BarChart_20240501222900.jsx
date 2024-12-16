@@ -1,0 +1,66 @@
+import React, { useState } from 'react'
+import { BarChart } from '@mui/x-charts/BarChart';
+import { axisClasses } from '@mui/x-charts';
+
+const BarChartGraph = () => {
+  const [leaves, setLeaves] = useState([]);
+  
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  const id = user.details._id;
+  console.log(id);
+  
+    const chartSetting = {
+        yAxis: [
+          {
+            label: 'No of days',
+          },
+        ],
+        width: 500,
+        height: 300,
+        sx: {
+          [`.${axisClasses.left} .${axisClasses.label}`]: {
+            transform: 'translate(0px, 0)',
+          },
+        },
+      };
+
+    const dataset = [
+        {
+            annual:10,
+            sick:8,
+            casual:6,
+            month:"Feb"
+        },
+        {
+            annual:6,
+            sick:9,
+            casual:4,
+            month:"Mar"
+        },
+        {
+            annual:8,
+            sick:6,
+            casual:4,
+            month:"Apr"
+        }
+    ]
+
+    const valueFormatter = (value) => `${value}days`;
+
+  return (
+    <div>
+         <BarChart
+      dataset={dataset}
+      xAxis={[{ scaleType: 'band', dataKey: 'month', label:"months" }]}
+      series={[
+        { dataKey: 'annual', label: 'Annaul Leave', valueFormatter },
+        { dataKey: 'sick', label: 'Sick Leave', valueFormatter },
+        { dataKey: 'casual', label: 'Casual Leave', valueFormatter },
+      ]}
+      {...chartSetting}
+    />
+    </div>
+  )
+}
+
+export default BarChartGraph
