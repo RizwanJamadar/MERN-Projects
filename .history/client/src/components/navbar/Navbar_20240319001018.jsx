@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="navbarWrapper">
         <div className="navbarLeft">
           <span className="logo">
-            <a style={{ color: "#312ECB" }}>Easy</a>Leave.
+            <a style={{ color: "#312ECB" }}>Smart</a>Leave.
           </span>
         </div>
         <div className="navbarCenter">
