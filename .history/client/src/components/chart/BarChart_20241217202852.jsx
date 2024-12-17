@@ -20,7 +20,7 @@ const BarChartGraph = () => {
       console.log(leavesData);
 
 
-      const stats = await axios.post("https://tutorhub-api.onrender.com/calculateByMonth", {
+      const stats = await axios.post("/calculateByMonth", {
         leaves: leavesData,
       }); // Send the array as part of the request body
       // setLeaves(stats.data);

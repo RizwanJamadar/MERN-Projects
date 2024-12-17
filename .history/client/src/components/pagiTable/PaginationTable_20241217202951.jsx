@@ -94,7 +94,7 @@ const PaginationTable = ({ columns, Data, count }) => {
 
     try {
       await axios.put(
-        `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/approve-requests/${id}`,
+        `http://localhost:8800/api/leaveRequest/approve-requests/${id}`,
         null, // Pass null as the request data if you don't have any
         { headers } // Pass headers as the third argument
       );

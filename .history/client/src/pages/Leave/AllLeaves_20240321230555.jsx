@@ -18,11 +18,11 @@ const AllLeaves = () => {
       let endpoint = "";
 
       if (user.Role === "Professor") {
-        endpoint = `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/user-leaves/${id}`;
+        endpoint = `http://localhost:8800/api/leaveRequest/user-leaves/${id}`;
       } else if (user.Role === "hod") {
-        endpoint = `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/deptStaff`;
+        endpoint = "http://localhost:8800/api/leaveRequest/deptStaff";
       } else if (user.Role === "vp") {
-        endpoint = `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/allStaff`;
+        endpoint = "http://localhost:8800/api/leaveRequest/allStaff";
       }
 
       const authToken = user.token;

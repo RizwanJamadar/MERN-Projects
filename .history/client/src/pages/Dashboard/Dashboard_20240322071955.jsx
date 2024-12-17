@@ -14,9 +14,9 @@ const Dashboard = () => {
     try {
       let endpoint=""
       if(user.Role == "hod"){
-        endpoint = `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/CountByHod`
+        endpoint = "http://localhost:8800/api/leaveRequest/CountByHod"
       } else {
-        endpoint = `${import.meta.env.VITE_URL_BACK_END}/leaveRequest/countByVp`
+        endpoint = "http://localhost:8800/api/leaveRequest/countByVp"
       }
 
       const authToken = user.token;

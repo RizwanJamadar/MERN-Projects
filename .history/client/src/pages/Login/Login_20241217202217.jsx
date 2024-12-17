@@ -22,7 +22,7 @@ const Login = () => {
       return;
     }
     try {
-      const res = await axios.post(`${import.meta.env.VITE_URL_BACK_END}/auth/login`, {
+      const res = await axios.post("https://tutorhub-api.onrender.com/api/auth/login", {
         email,
         password,
       });

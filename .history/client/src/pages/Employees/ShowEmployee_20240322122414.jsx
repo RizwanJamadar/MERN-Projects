@@ -26,9 +26,9 @@ const ShowEmployee = () => {
     try {
       let apiUrl;
       if (user.Role === 'vp') {
-        apiUrl = `${import.meta.env.VITE_URL_BACK_END}/auth/allUsers`;
+        apiUrl = 'http://localhost:8800/api/auth/allUsers';
       } else if (user.Role === 'hod') {
-        apiUrl = `${import.meta.env.VITE_URL_BACK_END}/auth/departmentProfessor`;
+        apiUrl = 'http://localhost:8800/api/auth/departmentProfessor';
       } else {
         throw new Error('Invalid user role');
       }

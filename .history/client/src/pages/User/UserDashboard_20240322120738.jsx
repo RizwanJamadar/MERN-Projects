@@ -15,11 +15,11 @@ const UserDashboard = () => {
   // console.log(id);
   const getUserData = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_URL_BACK_END}/leaveRequest/user-leaves/${id}`);
+      const res = await axios.get(`http://localhost:8800/api/leaveRequest/user-leaves/${id}`);
       const leavesData = res.data.leaves; // Assuming res.data.leaves is an array
       setLeaves(leavesData); // Set the leaves state with the received data
   
-      const stats = await axios.post("https://tutorhub-api.onrender.com/calculate", { leaves: leavesData }); // Send the array as part of the request body
+      const stats = await axios.post("http://localhost:8800/calculate", { leaves: leavesData }); // Send the array as part of the request body
       setStats(stats.data);
       // console.log(stats);
     } catch (error) {

@@ -16,9 +16,9 @@ const RequestLeave = () => {
       let endpoint = "";
 
       if (user.Role === "hod") {
-        endpoint = "https://tutorhub-api.onrender.com/api/leaveRequest/deptStaff";
+        endpoint = "http://localhost:8800/api/leaveRequest/deptStaff";
       } else if (user.Role === "vp") {
-        endpoint = "https://tutorhub-api.onrender.com/api/leaveRequest/allStaff";
+        endpoint = "http://localhost:8800/api/leaveRequest/allStaff";
       }
 
       const authToken = user.token;

@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   const handleLogout = async () =>{
     try {
-      const res = await axios.post(`${import.meta.env.VITE_URL_BACK_END}/auth/logout`)
+      const res = await axios.post("http://localhost:8800/api/auth/logout")
       localStorage.setItem("currentUser", null)
       navigate("/login")
       toast.success(res.data)

@@ -50,7 +50,7 @@ const AddEmployee = () => {
         "Content-Type": "application/json",
       };
 
-      const res = await axios.post(`${import.meta.env.VITE_URL_BACK_END}/auth/register`, formData, { headers });
+      const res = await axios.post("http://localhost:8800/api/auth/register", formData, { headers });
       navigate("/showEmployees")
       toast.success(res.data)
     } catch (error) {

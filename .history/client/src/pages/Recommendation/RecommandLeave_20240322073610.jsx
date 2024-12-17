@@ -27,7 +27,7 @@ const RecommandLeave = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://tutorhub-api.onrender.com/api/leaveRecommand/recommend-leave",
+        "http://localhost:8800/api/leaveRecommand/recommend-leave",
         data
       );
       console.log(res.data);
